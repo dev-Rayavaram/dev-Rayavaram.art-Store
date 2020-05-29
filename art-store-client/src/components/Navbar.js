@@ -1,21 +1,44 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../images/download.jpeg';
 function Menubar() {
- // const [hoverIndex,setHoverIndex]=useState(-1);
- // const [navOpen,setNavOpen]=useState(false);
+  const [navOpen,setNavOpen]=useState(false);
     return (
-          <>
-           <nav className = "responsive-menu">
-             <ul>
-                <li tag={Link} to="/">Home</li>
-                <li tag={Link} to='/order'>Manage Order</li>
-                <li tag={Link} to="/product">Products</li>
-                <li tag={Link} to="/contact">About</li>
-             </ul>
-           </nav>;
-          </>
+      <nav className = "responsive-menu">
+      <ul>
+         <figure onClick={()=>setNavOpen(!navOpen)}>
+            <img src ={logo} height="50px" width="50px" alt="logo-nav-toggler"/>
+         </figure>
+        <li
+        className={navOpen?'active':'hidden'}
+        >
+        <Link to="/"></Link>
+        </li>
+        <li
 
+        className={navOpen?'active':'hidden'}           
+        >
+          <Link to='/order'>Orders</Link>
+        </li>
+        <li
+          className={navOpen?'active':'hidden'}                       
+        >
+          <Link to="/product">Products</Link>
+        </li>
+        <li
+         className={navOpen?'active':'hidden'}                                     
+        >
+          <Link to="/contact">About</Link>
+        </li>
+        <li
+
+        className={navOpen?'active':'hidden'}           
+        >
+          <Link to='/home'>Home</Link>
+        </li>
+
+      </ul>
+    </nav>    
     );
 };
     

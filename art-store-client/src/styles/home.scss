@@ -1,0 +1,21 @@
+@import './modules/all';
+
+$container-height:100%;
+$container-width:100%;
+
+.home{
+    display: flex;
+    background:url('../images/tajmahal-canvas-art.jpg');
+    min-width: 100vmin;
+    min-height: 100vmin;
+    background-size:cover;
+    background-position: center;
+ }
+h1{
+    @include san-sarif();
+    text-align: center;
+    span{
+        display: block;
+        @include san-sarif($cl:$color14,$ff:$cursiveT,$ft:4.5rem);
+    }
+}

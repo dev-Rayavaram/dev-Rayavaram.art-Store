@@ -1,27 +1,40 @@
-@import './styles/partials/home.scss';
+@import './styles/home.scss';
 $container-height:100%;
 $container-width:100%;
 body{
-    background-image: url("./images/tajmahal-canvas-art.jpg");
-    background-size: cover;
-    background-position: top 25%;
+    display: flex;
     width:$container-width;
     height:$container-height;
+    justify-content: center;
 }
-ul{
-    display: flex;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0em;
-    height: 100%;
-    align-items: center;
-    li{
-        list-style-type:none;
-        margin: 20px 10px;
-    }
-    a{
-        color: $color16;
-        text-decoration: none;
+.responsive-menu{
+
+    position: absolute;
+    top: 0%;
+    left:0%;
+    ul{
+        display: flex;
+        flex-direction: column;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0em;
+        height: 100%;
+        align-items: center;
+        width: $container-width/5;
+         li{
+            display: none;
+
+            &.active{
+                display: inline;
+            }    
+            list-style-type:none;
+            padding: 10px 10px;
+        }
+        a{
+            color: $color16;
+            text-decoration: none;
+        }
     }
 }
+
       
