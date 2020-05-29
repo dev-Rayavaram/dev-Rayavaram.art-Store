@@ -1,32 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Menubar() {
+ // const [hoverIndex,setHoverIndex]=useState(-1);
+ // const [navOpen,setNavOpen]=useState(false);
     return (
-    <div className="topbar">
-        <div className="logo">
-        </div>
-        <div className="menu">
-          Issues
-        </div>
-        <div className="menu">
-          Topics
-        </div>
-        <div className="menu">
-          Blog
-        </div>
-        <div className="menu">
-          Newsletter
-        </div>
-        <div className="menu">
-            <i className="fa fa-facebook"></i>
-            <i className="fa fa-twitter"></i>  
-        </div>
-        <div className="menu menu-button">
-          Subscribe
-        </div>
-      </div>
+          <>
+           <nav className = "responsive-menu">
+             <ul>
+                <li tag={Link} to="/">Home</li>
+                <li tag={Link} to='/order'>Manage Order</li>
+                <li tag={Link} to="/product">Products</li>
+                <li tag={Link} to="/contact">About</li>
+             </ul>
+           </nav>;
+          </>
 
     );
 };
     
-export default Navbar;
+export default Menubar;
