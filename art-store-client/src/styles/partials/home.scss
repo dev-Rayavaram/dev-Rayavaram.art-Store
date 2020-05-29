@@ -10,16 +10,9 @@ body{
     align-content: center;
     
 }
-@mixin san-sarif($cl:$color-base,$ff:$title,$ft:3rem,$lht:1,$lsp:5.5,$tt:uppercase){
-    color:$cl;
-    font-family: $ff;
-    font-size: $ft;
-    line-height: $lht;
-    letter-spacing: $lsp;
-    text-transform:$tt;
-}
 h1{
     @include san-sarif();
+    text-align: center;
     span{
         display: block;
         @include san-sarif($cl:$color14,$ff:$cursiveT,$ft:4.5rem);

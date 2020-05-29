@@ -1,0 +1,8 @@
+@mixin san-sarif($cl:$color-base,$ff:$title,$ft:3rem,$lht:1.5,$lsp:5.5,$tt:uppercase){
+    color:$cl;
+    font-family: $ff;
+    font-size: $ft;
+    line-height: $lht;
+    letter-spacing: $lsp;
+    text-transform:$tt;
+}
