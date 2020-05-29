@@ -1,0 +1,12 @@
+@import './styles/partials/home.scss';
+$container_width:100%;
+$container_height:100%;
+
+
+        body {
+            background-image: url("./images/pexels-photo-743986.jpeg");
+            background-size: cover;
+            width:$container_width;
+            height:$container_height;
+        }
+      
