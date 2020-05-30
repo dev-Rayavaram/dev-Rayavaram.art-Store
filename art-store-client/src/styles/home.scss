@@ -6,16 +6,37 @@ $container-width:100%;
 .home{
     display: flex;
     background:url('../images/tajmahal-canvas-art.jpg');
+    position: relative;
+    overflow: hidden;
+    animation: 2s ease-in-out both fade-in;
+    @keyframes fade-in {
+        0%{
+            opacity: 0;
+            transform: scale(0);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+    }
+    img{
+        position: relative;
+    }
     min-width: 100vmin;
     min-height: 100vmin;
     background-size:cover;
-    background-position: center;
- }
+    }
+ 
+
 h1{
     @include san-sarif();
     text-align: center;
-    span{
-        display: block;
-        @include san-sarif($cl:$color14,$ff:$cursiveT,$ft:4.4rem);
+    @include span();
+   
+    @keyframes increase{
+        0%{transform:scale(1)}
+        100%{transform: scale(1.5);}
     }
 }
+
