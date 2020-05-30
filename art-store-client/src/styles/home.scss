@@ -16,6 +16,6 @@ h1{
     text-align: center;
     span{
         display: block;
-        @include san-sarif($cl:$color14,$ff:$cursiveT,$ft:4.5rem);
+        @include san-sarif($cl:$color14,$ff:$cursiveT,$ft:4.4rem);
     }
 }

@@ -2,13 +2,52 @@
 
 .product{
     display: flex;
+    flex-direction: row;
+    min-width: 100vmin;
+    min-height: 100vmin;
+    background-size:cover;
+    background-position: center;
     background:linear-gradient(to bottom right,$color15,$color12);
     min-width: 100vmin;
     min-height: 100vmin;
     background-size:cover;
     background-position: center;
-    h1{
-        @include san-sarif($cl:blue,$ff:$title,$ft:2.5rem);
-        text-align: center;
+    margin-top: 6%;
+    .banner{
+        @include banner();
+        span{
+            display: block;
+            background-color: $color12;
+            @include san-sarif($cl:$color16,$ff:$cursiveT,$ft:4.6rem);
+        }   
+    }
+    #projects ul{
+        overflow:hidden;
+    }
+    .wrapper{
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    #projects li{
+        list-style: none;
+        display: flex;
+        float: left;  
+        flex-direction: column;
+        width:calc(100% - 10rem);
+        height:calc(100% - 10rem);
+        @include grid(3,0%);
+        .product-details{
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            width:80%;
+            border-radius: 8%;
+        }
+        button{
+            width:30%;
+            height:25%
+        }
+
     }
  }
