@@ -10,6 +10,22 @@ body{
     width:$container-width;
     height:$container-height;
     justify-content: center;
+    overflow-x: hidden;
+    align-items: center;
+    
+}
+.header{
+    display: flex;
+    min-width: 100vh;
+    min-height: 20vh;
+    width:100%;
+    height:20%;
+    background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url('./images/bannerImage.jpg');
+    background-color: $color7;
+
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
 }
 .responsive-menu{
 
@@ -33,10 +49,14 @@ body{
             }    
             list-style-type:none;
             padding: 10px 10px;
+          
         }
         a{
             color: $color16;
             text-decoration: none;
+            &.hover{
+                color: $color15;
+            }
         }
     }
 }

@@ -13,9 +13,6 @@ import './App.scss'
 function App() {
   return (
     <div className="App">
-      <h1>
-      <span> GATEWAY TO INDIAN ART</span>      </h1>
-
       <Router>
         <Navbar/>
         <Switch>

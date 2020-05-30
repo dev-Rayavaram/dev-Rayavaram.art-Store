@@ -1,14 +1,14 @@
 import React,{Component} from 'react';
 import { Button } from 'react-bootstrap';
- 
+ import Header from './Header'
 class Product extends Component {
   render(){
     return (
-      <div className='product'>
-            <div className="banner">
-                <span> GATEWAY TO INDIAN ART</span> 
-            </div>
-          <section id="projects">
+      <div className="App">
+    <div className='product'>
+              <Header/>
+
+        <section id="projects">
               <ul>
                 <li>
                   <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
@@ -113,7 +113,11 @@ class Product extends Component {
               </ul>
             </section>
             </div>
-      );
+   
+
+
+      </div>
+     );
   }
   
 };

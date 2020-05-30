@@ -10,11 +10,6 @@ function Menubar() {
             <img src ={logo} height="50px" width="50px" alt="logo-nav-toggler"/>
          </figure>
         <li
-        className={navOpen?'active':'hidden'}
-        >
-        <Link to="/"></Link>
-        </li>
-        <li
 
         className={navOpen?'active':'hidden'}           
         >
@@ -36,7 +31,11 @@ function Menubar() {
         >
           <Link to='/home'>Home</Link>
         </li>
-
+        <li
+        className={navOpen?'active':'hidden'}
+        >
+        <Link to="/"></Link>
+        </li>
       </ul>
     </nav>    
     );

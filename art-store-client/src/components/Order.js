@@ -3,7 +3,7 @@ import React from 'react';
 function Order() {
     return (
     <div className='order'>
-            <h3 className="title">Order page</h3>
+            <h3 className="title">Manage your current order</h3>
       </div>
 
     );
