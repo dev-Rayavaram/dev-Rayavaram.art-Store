@@ -1,0 +1,14 @@
+@import './modules/all';
+
+.product{
+    display: flex;
+    background:linear-gradient(to bottom right,$color15,$color12);
+    min-width: 100vmin;
+    min-height: 100vmin;
+    background-size:cover;
+    background-position: center;
+    h1{
+        @include san-sarif($cl:blue,$ff:$title,$ft:2.5rem);
+        text-align: center;
+    }
+ }

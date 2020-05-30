@@ -2,10 +2,7 @@
 @import './modules/all';
 $container-height:100%;
 $container-width:100%;
-body{
-    display: flex;
-    @include background($img:"./images/pexels-photo-3900424.jpg",$size:'cover',$position:25%);
- }
+
 h1{
     @include san-sarif();
     text-align: center;
