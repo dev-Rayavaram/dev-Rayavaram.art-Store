@@ -40,6 +40,12 @@ function Menubar() {
         >
           <Link to='/customer'>Register</Link>
         </li>
+          <li
+          className={navOpen?'active':'hidden'}           
+          >
+            <Link to='/cart'>cart</Link>
+          </li>
+
 
         <li
         className={navOpen?'active':'hidden'}

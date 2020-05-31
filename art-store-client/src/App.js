@@ -1,5 +1,5 @@
 import React from 'react';
-import 'normalize.css'; // Note this;
+//import 'normalize.css'; // Note this;
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Customer from './components/Customer'
