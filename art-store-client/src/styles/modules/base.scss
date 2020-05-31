@@ -7,6 +7,27 @@
     text-transform:$tt;
 
 }
+@mixin form($size:100%,$cols:50%,$ft:$title){
+    justify-content: stretch;
+    padding:30px;
+    border:30px;
+    margin:30px;
+    width:$size;
+    .row{
+        width:80%;
+        height:20%;
+    }
+    .label{
+        width:50%;
+        color:$color14;
+    }
+    input{
+        width:  $cols;
+        font:   $ft;
+        padding:10px;
+
+    }  
+}
 @mixin grid($cols,$mgn){
     float:left;
    margin: 0;

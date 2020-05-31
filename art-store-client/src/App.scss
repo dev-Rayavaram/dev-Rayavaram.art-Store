@@ -2,6 +2,7 @@
 @import './styles/products.scss';
 @import './styles/order.scss';
 @import './styles/customer.scss';
+@import "~bootstrap/scss/bootstrap";
 
 $container-height:100%;
 $container-width:100%;
@@ -11,8 +12,7 @@ body{
     height:$container-height;
     justify-content: center;
     overflow-x: hidden;
-    align-items: center;
-    
+    align-items: center;    
 }
 .header{
     display: flex;
@@ -22,10 +22,13 @@ body{
     height:20%;
     background:linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url('./images/bannerImage.jpg');
     background-color: $color7;
-
     background-repeat: no-repeat;
     background-size:contain;
     background-position: center;
+}
+.form{
+
+    margin-top: 50px;
 }
 .responsive-menu{
 
@@ -43,13 +46,14 @@ body{
         width: $container-width/5;
          li{
             display: none;
-
             &.active{
                 display: inline;
-            }    
+            }         
             list-style-type:none;
-            padding: 10px 10px;
-          
+            padding: 10px 10px;        
+        }
+        li:hover{
+            font-weight: bold;
         }
         a{
             color: $color16;

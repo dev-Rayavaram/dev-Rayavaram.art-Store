@@ -4,11 +4,8 @@ import { Button } from 'react-bootstrap';
 class Product extends Component {
   render(){
     return (
-      <div className="App">
     <div className='product'>
-              <Header/>
-
-        <section id="projects">
+        <Header/>
               <ul>
                 <li>
                   <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
@@ -109,14 +106,8 @@ class Product extends Component {
                     <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
                   </div>
                 </li>
-
               </ul>
-            </section>
-            </div>
-   
-
-
-      </div>
+          </div> 
      );
   }
   

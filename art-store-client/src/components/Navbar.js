@@ -32,6 +32,13 @@ function Menubar() {
           <Link to='/home'>Home</Link>
         </li>
         <li
+
+        className={navOpen?'active':'hidden'}           
+        >
+          <Link to='/customer'>Register</Link>
+        </li>
+
+        <li
         className={navOpen?'active':'hidden'}
         >
         <Link to="/"></Link>
