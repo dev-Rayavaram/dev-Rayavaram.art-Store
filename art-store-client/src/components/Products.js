@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
  import {addBasket} from './actions/addAction';
 
 function Product(props){
+  let product="tanjore1";
   console.log("props inside product",props);
     return (
     <div className='product'>
@@ -18,7 +19,7 @@ function Product(props){
                     Price:
                     Quantity:
                      </p> 
-                    <Button className="button" type="button" value="button" onClick ={props.addBasket}>Buy</Button>
+                    <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
                   </div>
                 </li>
                 <li>
