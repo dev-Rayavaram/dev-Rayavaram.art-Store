@@ -1,8 +1,11 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
- import Header from './Header'
-class Product extends Component {
-  render(){
+ import Header from './Header';
+ import {connect} from 'react-redux';
+ import {addBasket} from './actions/addAction';
+
+function Product(props){
+  console.log("props inside product",props);
     return (
     <div className='product'>
         <Header/>
@@ -15,7 +18,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button className="button" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button className="button" type="button" value="button" onClick ={props.addBasket}>Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -26,7 +29,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button" >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -37,7 +40,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button" >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -48,7 +51,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button"  >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -59,7 +62,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button" >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -70,7 +73,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button" >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -81,7 +84,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button"  >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -92,7 +95,7 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button"  >Buy</Button>
                   </div>
                 </li>
                 <li>
@@ -103,14 +106,13 @@ class Product extends Component {
                     Price:
                     Quantity:
                      </p> 
-                    <Button color="success" type="button" value="button"  onClick={this.addOrder}>Buy</Button>
+                    <Button color="success" type="button" value="button"  >Buy</Button>
                   </div>
                 </li>
               </ul>
           </div> 
      );
-  }
   
 };
     
-export default Product;
+export default connect(null,{addBasket})(Product);

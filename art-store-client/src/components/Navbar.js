@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/download.jpeg';
+import {connect} from 'react-redux';
+import {getNumbers} from './actions/getAction'
+
 function Menubar() {
   const [navOpen,setNavOpen]=useState(false);
     return (
@@ -47,5 +50,7 @@ function Menubar() {
     </nav>    
     );
 };
-    
-export default Menubar;
+  const mapStateToProps = state=>({
+    basketProps:state.basketState
+  })
+export default connect(mapStateToProps,{getNumbers})(Menubar);
