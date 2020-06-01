@@ -3,9 +3,10 @@
 .product{
     display: flex;
     flex-direction: column;
-    min-width: 100vmin;
-    min-height: 100vmin;
+    width:90%;
+    height:80%;
     background-size:cover;
+    float:right;
     background-position: center;
     background:linear-gradient(to bottom right,$color15,$color12);
     background-size:cover;

@@ -6,114 +6,146 @@ import { Button } from 'react-bootstrap';
 
 function Product(props){
   let product="Tanjore1";
+  let productList=''
+  let productsInCart=[];
   console.log("props inside product",props);
-    return (
-    <div className='product'>
-        <Header/>
-              <ul>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"  fluid />
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button" >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button" >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button"  >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button" >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button" >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button"  >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button"  >Buy</Button>
-                  </div>
-                </li>
-                <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
-                  <div className="product-details">
-                  <p>
-                   Name:
-                    Price:
-                    Quantity:
-                     </p> 
-                    <Button color="success" type="button" value="button"  >Buy</Button>
-                  </div>
-                </li>
-              </ul>
-          </div> 
-     );
-  
+  if(props.basketProps !==null && props.basketProps !== undefined && props.basketProps.products!==undefined){
+      Object.keys(props.basketProps.products).forEach(element => {
+          productsInCart.push(props.basketProps.products[element])
+        })
+      }
+      productList = productsInCart.map((item,index)=>{
+        return(
+          <>
+          <li key="index">
+           <div className="product-details">
+
+            <img  src= {require(`../images/${item.urlSm}`)} style={{"width":"150px","height":"150px"}} alt="tanjore"  fluid="true" />
+            Name: (item.product) 
+              Price: {item.price}
+              Quantity:{item.quantity}
+          
+              <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
+          </div>
+          </li>
+        </>
+
+        )
+        })
+
+          return (
+                  <div className='App'>
+                    <div className='product'>
+                        <Header/>
+                        <br></br>
+                            <ul>
+                              {productList}
+    {/* //             <li>
+    //               <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"  fluid="true" />
+    //               <div className="product-details">
+    //               <p>
+    //                Name:  
+    //                 Price: 20.00
+    //                 Quantity:0
+    //                  </p> 
+    //                 <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-2.jpg')}  alt="tanjore"  fluid="true" />
+    //               <div className="product-details">
+    //               <p>
+    //                Name: kalankari1 
+    //                 Price: 20.00
+    //                 Quantity:0
+    //                  </p> 
+    //                 <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-3.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name:Tanjore1
+    //                 Price:20
+    //                 Quantity:0
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button" >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-4.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name: Kalankari3
+    //                 Price: 20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button"  >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-5.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name:Kondapalli1
+    //                 Price:20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button" >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-6.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name:Kondapalli2
+    //                 Price: 20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button" >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-7.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name: Nirmal1
+    //                 Price: 20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button"  >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-8.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name: Nirmal2
+    //                 Price: 20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button"  >Buy</Button>
+    //               </div>
+    //             </li>
+    //             <li>
+    //               <img  src={require('../images/image-sm-9.jpg')}  alt="tanjore"/>
+    //               <div className="product-details">
+    //               <p>
+    //                Name: Kondapalli3
+    //                 Price: 20.00
+    //                 Quantity:
+    //                  </p> 
+    //                 <Button color="success" type="button" value="button"  >Buy</Button>
+    //               </div>
+    //             </li> */}
+               </ul>
+              </div>
+              </div>
+)
 };
     
-export default connect(null,{addBasket})(Product);
+const mapStateToProps = state=>({
+  basketProps:state.basketState
+})
+export default connect(mapStateToProps,{addBasket})(Product)

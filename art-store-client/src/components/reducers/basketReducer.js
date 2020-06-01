@@ -3,6 +3,7 @@ import { ADD_PRODUCT_BASKET ,GET_NUMBERS_BASKET,INCREASE_QUANTITY,DECREASE_QUANT
 const initialState = {
     basketNumber:0,
     cartCost:0,
+    isLoaded:false,
     products:{
         kalankari1:{
             product:"kalankari1",

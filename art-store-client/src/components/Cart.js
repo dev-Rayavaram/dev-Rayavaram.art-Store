@@ -14,10 +14,7 @@ function Cart({basketProps,productQuantity,clearProduct}) {
 
   const handleSubmit=(event)=>{
       console.log("submit called");
-
-     
-           ReactDOM.render( <Provider store={ store }><Customer /> </Provider>, document.getElementById('root'));
-     
+           ReactDOM.render( <Provider store={ store }><Customer /> </Provider>, document.getElementById('root'));     
       event.preventDefault();
   }
   let productsInCart=[];
