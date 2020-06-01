@@ -12,7 +12,7 @@ function Product(props){
         <Header/>
               <ul>
                 <li>
-                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"/>
+                  <img  src={require('../images/image-sm-1.jpg')}  alt="tanjore"  fluid />
                   <div className="product-details">
                   <p>
                    Name:

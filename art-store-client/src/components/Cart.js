@@ -22,10 +22,13 @@ function Cart({basketProps}) {
                     <>
                     <tr key={index}>
                         <td style={{whiteSpace: 'nowrap'}}> {item.product}</td>
-                        <td>{item.quantity}</td>
+                        <td><span className="glyphicon glyphicon-minus"> </span>
+                          {item.quantity}
+                          <span className="glyphicon glyphicon-plus"> </span>
+                          </td>
                         <td> {item.price}</td>
                         <td>
-                          <img src = {require(`../images/${item.urlSm}`)}/>
+                          <img src = {require(`../images/${item.urlSm}`)} alt=" product"/>
                         </td>
                       </tr>
                     </>

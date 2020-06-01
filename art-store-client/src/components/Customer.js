@@ -1,14 +1,22 @@
 import React,{Component} from 'react';
-//mport axios from 'axios';
-import {Form,Button,Col} from 'react-bootstrap'
+import axios from 'axios';
+import {Form,Button} from 'react-bootstrap'
 import Header from './Header';
-//const Key = process.env.REACT_APP_API_KEY;
+
+const Key = process.env.REACT_APP_API_KEY;
+ 
+
 class Customer extends Component {
+    emptyItem = {
+        firstName: '',
+        lastName: '',
+        email: ''
+      };
     constructor(props){
         super(props)
-        this.state={
-            customer:[]
-        }
+        this.state = {
+            customer: this.emptyItem
+          };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
     }
@@ -22,14 +30,39 @@ class Customer extends Component {
       }
     async handleSubmit(event) {
         event.preventDefault();
-        // try{
-        //   const result= await axios.post(`https://api.cloudmersive.com/validate/email/address/full`,Key);
-        //     console.log(result);
-        // }
-        // catch (e){
-        //   console.log(e);
-        // }
         alert("button clicked");
+        console.log("this.state",this.state)
+        let number =(this.state.customer.phone)?(this.state.customer.phone):'';
+        
+        //symbol post 
+        let url= `http://apilayer.net/api/validate?access_key=${Key}&number=${number}`
+        console.log("url",url)
+            try{
+                const result=   await  axios.post(url, number);
+                console.log("REsults for phone validation is :",result);
+                if(result.data.valid){
+                        let data={
+                                name: `${this.state.customer.firstName} ${this.state.customer.lastName}`,
+                                email:this.state.customer.email,  
+                                phoneNumber:number                      
+                            }    
+                            //symbol post 
+                            try{
+                               const status= await axios.post("/store_api/v1/customer", data)
+                                console.log(" data save is",status)
+                            }
+                            catch(e){
+                            console.log(e);
+                            }               
+                    }
+                    else{
+                        alert("please enter valid phone number")
+                    }
+            }
+            catch(e){
+                console.log(e);
+            }
+     
     }
      render(){
         return (
@@ -38,12 +71,12 @@ class Customer extends Component {
                 <br/>
                 <h3 className="title">Buyer Registration Form:</h3>
                 <h5> Your phone number will be validated</h5>
-                <Form className="form">
+                {/* <Form className="form">
                     <Form.Row className="row">
                         <Form.Group as={Col} controlId="firstName">
                         <Form.Label className="label">First Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter First Name" onChange=
-                        {this.handleChange} value={this.state.customer.firstName}/>
+                        {this.handleChange}  value={this.state.customer.firstName}/>
                         </Form.Group>
                    </Form.Row>
                    <Form.Row>
@@ -57,20 +90,50 @@ class Customer extends Component {
                      <Form.Row  className="row">
                         <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label className="label">Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange=
-                        {this.handleChange}  value={this.state.customer.email}/>
+                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleChange} value={this.state.customer.email}/>
                         </Form.Group>
                         </Form.Row>  
                         <Form.Row  className="row">
-                            <Form.Group as={Col} controlId="formGridEmail">
+                            <Form.Group as={Col} controlId="formGridPhone">
                             <Form.Label className="label">Phone Number</Form.Label>
-                            <Form.Control type="text" placeholder="Enter PhoneNumber" onChange={this.handleChange}  value={this.state.customer.phone}/>
+                            <Form.Control type="text"  placeholder="Enter PhoneNumber" onChange={this.handleChange}  value={this.state.customer.phone}/>
                             </Form.Group>
                         </Form.Row>                                                  
                           <Button variant="primary" type="button" className="btn btn-primary" onClick={this.handleSubmit}>
                             Submit
                         </Button>
-                    </Form>
+                    </Form> */}
+                    <Form>
+                    <Form.Group>
+                    <Form.Label >First Name</Form.Label>
+                    <input type="text" name="firstName" className="form-control" id="firstName" value={this.state.customer.firstName || ''}
+                        onChange={this.handleChange} autoComplete="firstName"/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label >Last Name</Form.Label>
+                    <input type="text" name="lastName" className="form-control" id="lastName" value={this.state.customer.lastName || ''}
+                        onChange={this.handleChange} autoComplete="lastName"/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label  >Email</Form.Label>
+                    <input type="text" className="form-control" name="email" id="email" value={this.state.customer.email || ''}
+                        onChange={this.handleChange} autoComplete="email"/>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Phone Number</Form.Label>
+                    <input type="text"  className="form-control" name="phone" id="phone" value={this.state.customer.phone || ''}
+                        onChange={this.handleChange} autoComplete="phone"/>
+                </Form.Group>
+      
+                <Form.Group>
+                <Button variant="primary" type="button" className="btn btn-primary" onClick={this.handleSubmit}>Submit</Button>
+                </Form.Group>
+         
+        </Form>
+
+
+
+
               </div>
         
             );
