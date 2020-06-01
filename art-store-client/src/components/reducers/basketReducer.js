@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_BASKET ,GET_NUMBERS_BASKET,INCREASE_QUANTITY,DECREASE_QUANTITY} from "../actions/types";
+import { ADD_PRODUCT_BASKET ,GET_NUMBERS_BASKET,INCREASE_QUANTITY,DECREASE_QUANTITY,CLEAR_PRODUCT} from "../actions/types";
 
 const initialState = {
     basketNumber:0,
@@ -133,13 +133,28 @@ export default (state=initialState,action) =>{
                     console.log("decrease selected",productSelected);       
                     return{
                         ...state,
-                        basketNumber:state.basketNumber-1,
+                        basketNumber:state.basketNumber+1,
                         cartCost :state.cartCost-state.products[action.payload].price,
                         products:{
                             ...state.products,
                             [action.payload]:productSelected
                         }
                     }
+                    case CLEAR_PRODUCT:
+                        productSelected={...state.products[action.payload]}
+                        let numbers = productSelected.quantity;
+                            productSelected.quantity=0;
+                            productSelected.inCart=false;
+                        console.log("clear selected",productSelected);       
+                        return{
+                            ...state,
+                            basketNumber:state.basketNumber-numbers,
+                            cartCost :state.cartCost-(state.products[action.payload].price*numbers),
+                            products:{
+                                ...state.products,
+                                [action.payload]:productSelected
+                            }
+                        }
                
         case GET_NUMBERS_BASKET:
             return{

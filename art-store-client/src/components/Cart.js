@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 //import {Container,Row,Col} from 'react-bootstrap';
 import {Table,Button,Container} from 'react-bootstrap'
 import Header from './Header'
-import {productQuantity} from './actions/productQuantity';
+import {productQuantity,clearProduct} from './actions/productQuantity';
 
-function Cart({basketProps,productQuantity}) {
+function Cart({basketProps,productQuantity,clearProduct}) {
   const handleSubmit =(e)=>{
     alert("Button clicked");
   }
@@ -33,6 +33,8 @@ function Cart({basketProps,productQuantity}) {
                         <td>
                           <img src = {require(`../images/${item.urlSm}`)} alt=" product"/>
                         </td>
+                        <td><button type="button" className="btn btn-danger" onClick={()=>clearProduct("delete",item.product)} >Delete</button></td>
+
                       </tr>
 
                     </>
@@ -70,4 +72,4 @@ function Cart({basketProps,productQuantity}) {
 const mapStateToProps = state=>({
   basketProps:state.basketState
 })
-export default connect(mapStateToProps,{productQuantity})(Cart)
+export default connect(mapStateToProps,{productQuantity,clearProduct})(Cart)
