@@ -64,7 +64,9 @@ class Customer extends Component {
                                         let order={
                                                     product:this.props.basketProps.products[element].product,
                                                     quantity:this.props.basketProps.products[element].quantity,
-                                                    price:this.props.basketProps.products[element].price
+                                                    price:this.props.basketProps.products[element].price,
+                                                    name: `${this.state.customer.firstName} ${this.state.customer.lastName}`,
+                                                    email:this.state.customer.email
                                                 }
                                              axios.post("/store_api/v1/order", order);
                                         }

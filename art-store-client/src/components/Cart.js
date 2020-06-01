@@ -49,9 +49,9 @@ function Cart({basketProps,productQuantity,clearProduct}) {
               )}
         )}        
         return(
+            <div className="App">
                 <div>
                 <Header/>
-
                 <br></br>
                 <Container fluid>
                   <div className="float-right">
@@ -73,7 +73,9 @@ function Cart({basketProps,productQuantity,clearProduct}) {
                   </Table>
                 </Container>
                 <h3>Total cost: {cartTotal}</h3>
-              </div>
+                </div>
+
+            </div>
              )
         }
    
