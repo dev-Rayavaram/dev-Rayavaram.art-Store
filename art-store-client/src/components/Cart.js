@@ -3,15 +3,18 @@ import {connect} from 'react-redux';
 //import {Container,Row,Col} from 'react-bootstrap';
 import {Table,Button,Container} from 'react-bootstrap'
 import Header from './Header'
+import {productQuantity} from './actions/productQuantity';
 
-function Cart({basketProps}) {
+function Cart({basketProps,productQuantity}) {
   const handleSubmit =(e)=>{
     alert("Button clicked");
   }
   let productsInCart=[];
+  let cartTotal='';
   console.log("props in Cart",basketProps)
   if({basketProps} !==null){
     console.log("INSIDE CART IF TRUE")
+    cartTotal= basketProps.products.cartTotal;
         Object.keys(basketProps.products).forEach(element => {
         if(basketProps.products[element].inCart){
           productsInCart.push(basketProps.products[element])
@@ -22,15 +25,16 @@ function Cart({basketProps}) {
                     <>
                     <tr key={index}>
                         <td style={{whiteSpace: 'nowrap'}}> {item.product}</td>
-                        <td><span className="glyphicon glyphicon-minus"> </span>
+                        <td><button type="button" onClick={()=>productQuantity("decrease",item.product)} > - </button>
                           {item.quantity}
-                          <span className="glyphicon glyphicon-plus"> </span>
+                          <button className="glyphicon glyphicon-plus" onClick={()=>productQuantity("increase",item.product)} > + </button>
                           </td>
                         <td> {item.price}</td>
                         <td>
                           <img src = {require(`../images/${item.urlSm}`)} alt=" product"/>
                         </td>
                       </tr>
+
                     </>
               )}
         )}        
@@ -58,6 +62,7 @@ function Cart({basketProps}) {
                     </tbody>
                   </Table>
                 </Container>
+                <h3>Total cost: {cartTotal}</h3>
               </div>
              )
         }
@@ -65,4 +70,4 @@ function Cart({basketProps}) {
 const mapStateToProps = state=>({
   basketProps:state.basketState
 })
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps,{productQuantity})(Cart)

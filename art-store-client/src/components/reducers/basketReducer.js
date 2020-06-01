@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_BASKET ,GET_NUMBERS_BASKET} from "../actions/types";
+import { ADD_PRODUCT_BASKET ,GET_NUMBERS_BASKET,INCREASE_QUANTITY,DECREASE_QUANTITY} from "../actions/types";
 
 const initialState = {
     basketNumber:0,
@@ -90,12 +90,13 @@ const initialState = {
     }
 }
 export default (state=initialState,action) =>{
+    let productSelected = "";
     switch(action.type){
         case ADD_PRODUCT_BASKET:
-            let addQuantity={...state.products[action.payload]}
-            addQuantity.quantity +=1;
-            addQuantity.inCart=true;
-            console.log("addQuantity",addQuantity);
+            productSelected={...state.products[action.payload]}
+            productSelected.quantity +=1;
+            productSelected.inCart=true;
+            console.log("addQuantity",productSelected);
 
             return{
                 ...state,
@@ -103,9 +104,43 @@ export default (state=initialState,action) =>{
                 cartCost :state.cartCost+state.products[action.payload].price,
                 products:{
                     ...state.products,
-                    [action.payload]:addQuantity
+                    [action.payload]:productSelected
                 }
             }
+            case INCREASE_QUANTITY:
+                productSelected={...state.products[action.payload]}
+                productSelected.quantity +=1;
+                productSelected.inCart=true;
+                console.log("increase quantity",productSelected);
+    
+                return{
+                    ...state,
+                    basketNumber:state.basketNumber+1,
+                    cartCost :state.cartCost+state.products[action.payload].price,
+                    products:{
+                        ...state.products,
+                        [action.payload]:productSelected
+                    }
+                }
+                case DECREASE_QUANTITY:
+                    productSelected={...state.products[action.payload]}
+                    productSelected.quantity -=1;
+                    if(productSelected.quantity<0)                   
+                    {
+                        productSelected.quantity=0
+                    }
+                    (productSelected.quantity>0)? productSelected.inCart=true: productSelected.inCart=false
+                    console.log("decrease selected",productSelected);       
+                    return{
+                        ...state,
+                        basketNumber:state.basketNumber-1,
+                        cartCost :state.cartCost-state.products[action.payload].price,
+                        products:{
+                            ...state.products,
+                            [action.payload]:productSelected
+                        }
+                    }
+               
         case GET_NUMBERS_BASKET:
             return{
                 ...state
