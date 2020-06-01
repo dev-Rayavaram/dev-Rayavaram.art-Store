@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
  import {addBasket} from './actions/addAction';
 
 function Product(props){
-  let product="Tanjore1";
   let productList=''
   let productsInCart=[];
   console.log("props inside product",props);
@@ -17,15 +16,15 @@ function Product(props){
       productList = productsInCart.map((item,index)=>{
         return(
           <>
-          <li key="index">
+          <li key={index}>
            <div className="product-details">
 
             <img  src= {require(`../images/${item.urlSm}`)} style={{"width":"150px","height":"150px"}} alt="tanjore"  fluid="true" />
-            Name: (item.product) 
+            Name: {item.product}
               Price: {item.price}
               Quantity:{item.quantity}
           
-              <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(product)}>Buy</Button>
+              <Button className="button" type="button" value="button" onClick ={()=>props.addBasket(`${item.product}`)}>Buy</Button>
           </div>
           </li>
         </>
