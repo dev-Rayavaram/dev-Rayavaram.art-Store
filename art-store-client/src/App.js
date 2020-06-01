@@ -9,12 +9,10 @@ import Navbar from './components/Navbar'
 import Cart from './components/Cart'
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import './App.scss'
-import {Provider} from 'react-redux';
-import store from './components/store'
+
 
 function App() {
   return (
-    <Provider store={store}>
       <div className="App">
           <Router>
             <Navbar/>
@@ -30,7 +28,6 @@ function App() {
             </Switch>
           </Router>
         </div>
-    </Provider>
  );
 }
 

@@ -38,7 +38,7 @@ function Menubar() {
 
         className={navOpen?'active':'hidden'}           
         >
-          <Link to='/customer'>Register</Link>
+          <Link tag={Link} to='/customer'>Register</Link>
         </li>
           <li
           className={navOpen?'active':'hidden'}           

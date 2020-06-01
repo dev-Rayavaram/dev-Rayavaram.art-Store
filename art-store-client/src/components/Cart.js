@@ -1,13 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
 //import {Container,Row,Col} from 'react-bootstrap';
-import {Table,Button,Container} from 'react-bootstrap'
-import Header from './Header'
+import {Table,Container} from 'react-bootstrap'
+import Header from './Header';
+import ReactDOM from 'react-dom';
+import Customer from './Customer';
+import {Provider} from 'react-redux';
+import store from './store'
+
 import {productQuantity,clearProduct} from './actions/productQuantity';
 
 function Cart({basketProps,productQuantity,clearProduct}) {
-  const handleSubmit =(e)=>{
-    alert("Button clicked");
+
+  const handleSubmit=(event)=>{
+      console.log("submit called");
+
+     
+           ReactDOM.render( <Provider store={ store }><Customer /> </Provider>, document.getElementById('root'));
+     
+      event.preventDefault();
   }
   let productsInCart=[];
   let cartTotal='';
@@ -47,7 +58,7 @@ function Cart({basketProps,productQuantity,clearProduct}) {
                 <br></br>
                 <Container fluid>
                   <div className="float-right">
-                    <Button color="success" onClick={handleSubmit}>Submit</Button>
+                    <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
                   </div>
                   <h3>Items in your cart are :</h3>
                   <Table className="mt-4">

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import {Form,Button} from 'react-bootstrap'
 import Header from './Header';
+import {connect} from 'react-redux';
 
 const Key = process.env.REACT_APP_API_KEY;
  
@@ -53,11 +54,27 @@ class Customer extends Component {
                             }
                             catch(e){
                             console.log(e);
-                            }               
-                    }
-                    else{
-                        alert("please enter valid phone number")
-                    }
+                            }
+                            console.log(" props inside checkout ")
+                            console.log(this.props)
+                            let body={};
+                            if(this.props.basketProps.products !==null && this.props.basketProps.products!== undefined){
+                                Object.keys(this.props.basketProps.products).forEach(element => {
+                                    if(this.props.basketProps.products[element].inCart){
+                                        let order={
+                                                    product:this.props.basketProps.products[element].product,
+                                                    quantity:this.props.basketProps.products[element].quantity,
+                                                    price:this.props.basketProps.products[element].price
+                                                }
+                                             axios.post("/store_api/v1/order", order);
+                                        }
+                                
+                            })
+                            console.log("outside body:",body);
+                                      
+                        }
+                        
+                }
             }
             catch(e){
                 console.log(e);
@@ -69,8 +86,8 @@ class Customer extends Component {
             <div className='App'>
                 <Header/>
                 <br/>
-                <h3 className="title">Buyer Registration Form:</h3>
-                <h5> Your phone number will be validated</h5>
+                <h3 className="title">Enter Your Contact Information:</h3>
+                <h5> Your phone number will be validated ,and we will contact you</h5>
                 {/* <Form className="form">
                     <Form.Row className="row">
                         <Form.Group as={Col} controlId="firstName">
@@ -127,13 +144,8 @@ class Customer extends Component {
       
                 <Form.Group>
                 <Button variant="primary" type="button" className="btn btn-primary" onClick={this.handleSubmit}>Submit</Button>
-                </Form.Group>
-         
-        </Form>
-
-
-
-
+                </Form.Group>       
+                </Form>
               </div>
         
             );
@@ -141,4 +153,7 @@ class Customer extends Component {
    
 };
     
-export default Customer;
+const mapStateToProps = state=>({
+    basketProps:state.basketState
+  })
+  export default connect(mapStateToProps)(Customer)
