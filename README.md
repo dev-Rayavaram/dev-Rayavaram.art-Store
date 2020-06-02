@@ -49,6 +49,9 @@ DELETE /prod/{id}
 reference
 https://www.youtube.com/watch?v=0skzNIckrvQ&t=7s
 
+####    Bug reports
+1.  Checkout page doesn't display Navbar after processing checkout.
+
 ## Available Scripts
 
 In the project directory, you can run:
