@@ -25,6 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 CUSTOMER
 store_api/v1
+https://art-store-second.herokuapp.com/store_api/v1/customers(server link to check subscribers data"
 GET //customers,/customers/{id}
 POST /customer
 PUT /customer/{id}
