@@ -55,6 +55,7 @@ https://www.youtube.com/watch?v=0skzNIckrvQ&t=7s
 
 ####    Bug reports
 1.  Checkout page doesn't display Navbar after processing checkout.
+2. Github frontend is deployed, but I am getting blank screen as landing page.
 
 ## Available Scripts
 
