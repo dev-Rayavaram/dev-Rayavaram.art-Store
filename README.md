@@ -9,11 +9,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  ![wireframe](./wireframe-2.png)
 
 
-### Link to Github page
+### Link to the deployed Github page
 [Art Store Client](http://dev-Rayavaram.github.io/artStoreDev/)
 
 
-### Link to Java Application
+### Link to the Java Application
 [Art Store Artifact](https://art-store-second.herokuapp.com)
 
 ### External API Endpoints
