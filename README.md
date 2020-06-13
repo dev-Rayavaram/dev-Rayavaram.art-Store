@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  ![wireframe](./wireframe-2.png)
 
 
-### Link to the deployed Github page
+### Link to the deployed website
 [Art Store Client](https://art-store-client-deploy.herokuapp.com/)
 
 
