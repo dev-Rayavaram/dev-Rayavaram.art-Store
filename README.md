@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ### Link to the deployed Github page
-[Art Store Client](https://art-store-client-deploy.herokuapp.com/))
+[Art Store Client](https://art-store-client-deploy.herokuapp.com/)
 
 
 ### Link to the Java Application
