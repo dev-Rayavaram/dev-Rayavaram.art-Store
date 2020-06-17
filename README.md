@@ -8,55 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  ##  Database design  
  ![wireframe](./wireframe-2.png)
 
-
-### Link to the deployed website
-[Art Store Client](https://art-store-client-deploy.herokuapp.com/)
-
-
-### Link to the Java Application
-[Art Store Artifact](https://art-store-second.herokuapp.com)
-
 ### External API Endpoints
 1. https://apilayer.net/
 
-### API Endpoints for the Springboot application
-
-CUSTOMER
-store_api/v1
-https://art-store-second.herokuapp.com/store_api/v1/customers(server link to check subscribers data"
-GET //customers,/customers/{id}
-POST /customer
-PUT /customer/{id}
-DELETE /customerd/{id}
-
-### Heroku deployed page
-[Art Store Client](https://art-store-client-deploy.herokuapp.com/)
-
-ORDER 
-REST ENDPOINT
-store_api/v1
-GET /orders,/orders/{id}
-POST /order
-PUT /order/{id}
-DELETE /orderd/{id}
-
-
-PRODUCT TABLE
-REST API ENDPOINT
-store_api/v1
-GET /products,/products/{id}
-POST /products (bulk insert)
-POST /product ( inserting single entry)
-PUT /product/{id}
-DELETE /prod/{id}
-
 ##### Application implemented using React ,Redux, Java and Hibernate, and application deployed on Heroku
-### Redux Middleware
-reference
-https://www.youtube.com/watch?v=0skzNIckrvQ&t=7s
-
-####    Bug reports
-1.  Checkout page doesn't display Navbar after processing checkout.
 
 ## Available Scripts
 
